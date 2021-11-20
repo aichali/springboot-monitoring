@@ -1,0 +1,31 @@
+1. Create Docker network to deploy all tools and services
+		docker network create monitoring-network
+	
+2. Deploy Spring Boot Microsercice
+	- create docker image with Dockerfile
+		docker build -t springboot-monitoring-1.0.0 .
+	
+	- deploy microservice
+		docker container run --network monitoring-network --name microservice-to-monitor -p 8082:8082 springboot-monitoring-1.0.0
+		
+3. Run Prometheus in Docker container
+	- Update "prometheus.yml" by adding the microservice to scrape. The prometheus config file is here 
+	
+	- Load the new configurations of Prometheus with the command :
+			 
+	
+	- Download Prometheus image : 
+			docker pull prom/prometheus
+	
+	- Run Prometheus container :
+			docker run -d --network monitoring-network --name prometheus-server -p 9090:9090 -v LOCAL/PATH/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml --web.enable-lifecycle
+			
+4. Run Grafana in Docker container
+	- docker run -d --network monitoring-network --name grafana -p 3000:3000 grafana/grafana
+			
+	
+	
+	
+	 
+		
+		

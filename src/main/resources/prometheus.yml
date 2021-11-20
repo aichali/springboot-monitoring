@@ -1,0 +1,12 @@
+global:
+  scrape_interval:     15s # How frequently to scrape targets
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
+# A scrape configurations : create one job for each microservice to be monitored
+scrape_configs:
+  - job_name: 'springboot_microservice' # The job name.
+    metrics_path: 'microservice-to-monitor/actuator/prometheus' # The HTTP resource path.
+    scrape_interval: 5s # How frequently to scrape target.
+    static_configs:
+      - targets: ['microservice-to-monitor:8082'] # the docker container name where microservice is deployed
+      
