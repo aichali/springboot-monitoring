@@ -9,7 +9,7 @@
 		docker container run --network monitoring-network --name microservice-to-monitor -p 8082:8082 springboot-monitoring-1.0.0
 		
 3. Run Prometheus in Docker container
-	- Update "prometheus.yml" by adding the microservice to scrape. The prometheus config file is here 
+	- Update "prometheus.yml" by adding the microservice to scrape. The prometheus config file is here : https://github.com/aichali/springboot-monitoring/blob/master/src/main/resources/prometheus.yml
 	
 	- Load the new configurations of Prometheus with the command :
 			 
