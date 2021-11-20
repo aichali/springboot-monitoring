@@ -5,27 +5,20 @@
 	- create docker image with [Dockerfile](https://github.com/aichali/springboot-monitoring/blob/master/src/main/resources/Dockerfile) :
 		- docker build -t springboot-monitoring-1.0.0 .
 	
-	- run docker contaienr :
+	- run docker container :
 		-  docker container run --network monitoring-network --name microservice-to-monitor -p 8082:8082 springboot-monitoring-1.0.0
 		
-3. Run Prometheus in Docker container
+3. Install and run Prometheus in Docker container
 	- Update "prometheus.yml" by adding the microservice to scrape. The prometheus config file is [here](https://github.com/aichali/springboot-monitoring/blob/master/src/main/resources/prometheus.yml)
 	
 	- Load the new configurations of Prometheus with the command :
-			 
-	
+		- curl -X POST http://container.anme:9090/-/reload 
+			 	
 	- Download Prometheus image : 
-			docker pull prom/prometheus
+		- docker pull prom/prometheus
 	
 	- Run Prometheus container :
-			docker run -d --network monitoring-network --name prometheus-server -p 9090:9090 -v LOCAL/PATH/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml --web.enable-lifecycle
+		- docker run -d --network monitoring-network --name prometheus-server -p 9090:9090 -v LOCAL/PATH/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml --web.enable-lifecycle
 			
-4. Run Grafana in Docker container
-	- docker run -d --network monitoring-network --name grafana -p 3000:3000 grafana/grafana
-			
-	
-	
-	
-	 
-		
-		
+4. Run Grafana in Docker container :
+	- docker run -d --network monitoring-network --name grafana -p 3000:3000 grafana/grafana	
