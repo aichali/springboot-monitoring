@@ -1,4 +1,4 @@
-1. Create Docker network to deploy all tools and services
+1. Create Docker network to deploy all tools and services :
 		docker network create monitoring-network
 	
 2. Deploy Spring Boot Microsercice
