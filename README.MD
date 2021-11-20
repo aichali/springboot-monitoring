@@ -1,5 +1,5 @@
 1. Create Docker network to deploy all tools and services :
-		docker network create monitoring-network
+	- docker network create monitoring-network
 	
 2. Deploy Spring Boot Microsercice
 	- create docker image with Dockerfile
