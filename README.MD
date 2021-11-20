@@ -12,7 +12,7 @@
 	- Update "prometheus.yml" by adding the microservice to scrape. The prometheus config file is [here](https://github.com/aichali/springboot-monitoring/blob/master/src/main/resources/prometheus.yml)
 	
 	- Load the new configurations of Prometheus with the command :
-		- curl -X POST http://container.anme:9090/-/reload 
+		- curl -X POST http://container.name:9090/-/reload 
 			 	
 	- Download Prometheus image : 
 		- docker pull prom/prometheus
