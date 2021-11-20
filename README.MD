@@ -2,7 +2,7 @@
 	- docker network create monitoring-network
 	
 2. Deploy Spring Boot Microsercice
-	- create docker image with Dockerfile
+	- create docker image with [Dockerfile](https://github.com/aichali/springboot-monitoring/blob/master/src/main/resources/Dockerfile)
 		docker build -t springboot-monitoring-1.0.0 .
 	
 	- deploy microservice
